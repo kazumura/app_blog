@@ -1,0 +1,52 @@
+<!--
+    Copyright (c) 2026 Fujitsu Limited. All rights reserved.
+
+    SPDX-License-Identifier: Apache-2.0
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fujitsu.demo</groupId>
+  <artifactId>chat01</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <name>chat01</name>
+
+  <properties>
+    <java.version>25</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <lc4j.version>1.11.0</lc4j.version>
+  </properties>
+  
+  <dependencies>
+
+    <!-- Langchain4j -->
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j</artifactId>
+      <version>${lc4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j</groupId>
+      <artifactId>langchain4j-google-ai-gemini</artifactId>
+      <version>${lc4j.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>chat01</finalName>
+    <plugins>
+      <plugin>
+	    <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.6.3</version>
+        <configuration>
+          <mainClass>com.fujitsu.demo.Chat01</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
