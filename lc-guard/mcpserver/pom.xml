@@ -1,0 +1,136 @@
+<!--
+    Copyright (c) 2026 Fujitsu Limited. All rights reserved.
+
+    SPDX-License-Identifier: Apache-2.0
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fujitsu.demo</groupId>
+  <artifactId>poc02</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <name>poc02</name>
+
+  <properties>
+    <java.version>25</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <lc4j.cdi.version>1.4.0</lc4j.cdi.version>
+    <jaxrs.version>4.0.0</jaxrs.version>
+    <smallrye.jwt.version>4.6.2</smallrye.jwt.version>
+  </properties>
+  
+  <dependencies>
+    <!-- Logging -->
+    <!--
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>tinylog-impl</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tinylog</groupId>
+      <artifactId>slf4j-tinylog</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+    -->
+
+    <!-- JAX-RS specification and implementation -->
+    <dependency>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
+      <version>${jaxrs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-jdk-http</artifactId>
+      <version>${jaxrs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.ext.cdi</groupId>
+      <artifactId>jersey-weld2-se</artifactId>
+      <version>${jaxrs.version}</version>
+    </dependency>
+
+    <!-- CDI specification and implementation -->
+    <dependency>
+      <groupId>org.jboss.weld.se</groupId>
+      <artifactId>weld-se-core</artifactId>
+      <version>6.0.4.Final</version>
+    </dependency>
+        <dependency>
+      <groupId>jakarta.enterprise</groupId>
+      <artifactId>jakarta.enterprise.cdi-api</artifactId>
+      <version>4.1.0</version>
+    </dependency>
+
+
+    <!-- Langchain4j -->
+
+    <!-- Langchain4j-CDI -->
+    <dependency>
+      <groupId>dev.langchain4j.cdi.mcp</groupId>
+      <artifactId>langchain4j-cdi-mcp-server</artifactId>
+      <version>${lc4j.cdi.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>dev.langchain4j.cdi.mcp</groupId>
+      <artifactId>langchain4j-cdi-mcp-portable-ext</artifactId>
+      <version>${lc4j.cdi.version}</version>
+    </dependency>
+	
+    <!-- MicroProfile Config specification and implementation -->
+    <dependency>
+      <groupId>io.smallrye.config</groupId>
+      <artifactId>smallrye-config-core</artifactId>
+      <version>3.16.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.microprofile.config</groupId>
+      <artifactId>microprofile-config-api</artifactId>
+      <version>3.1</version>
+    </dependency>
+
+    <!-- MicroProfile JWT specification and implementation -->
+    <dependency>
+      <groupId>org.eclipse.microprofile.jwt</groupId>
+      <artifactId>microprofile-jwt-auth-api</artifactId>
+      <version>2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>io.smallrye</groupId>
+      <artifactId>smallrye-jwt</artifactId>
+      <version>${smallrye.jwt.version}</version>
+    </dependency>
+
+    <!-- JSON specification and implementation -->	
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-json-processing</artifactId>
+      <version>${jaxrs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-json-binding</artifactId>
+      <version>${jaxrs.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>poc02</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.6.3</version>
+        <configuration>
+          <mainClass>com.fujitsu.demo.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
